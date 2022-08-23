@@ -31,7 +31,7 @@ public class Test {
     public void testMonthlyPayment() {
         CalcCredit calcCredit = new CalcCredit();
         int amount = random.nextInt();
-        int month = random.nextInt();
+        int month = random.nextInt(100000);
         double rate = random.nextDouble();
         double annuityRatio = (rate / 100 / 12 * Math.pow((1 + rate / 100 / 12), month)) / (Math.pow((1 + rate / 100 / 12), month) - 1);
         double monthlyPayment = calcCredit.monthlyPayment(amount, month, rate);
@@ -42,7 +42,7 @@ public class Test {
     public void AmountReturn() {
         CalcCredit calcCredit = new CalcCredit();
         int amount = random.nextInt();
-        int month = random.nextInt();
+        int month = random.nextInt(100000);
         double rate = random.nextDouble();
         double amountReturn = calcCredit.amountReturn(amount, month, rate);
         Assertions.assertTrue(amount * (rate / 100 / 12 * Math.pow((1 + rate / 100 / 12), month)) /
@@ -53,7 +53,7 @@ public class Test {
     public void OverPayment() {
         CalcCredit calcCredit = new CalcCredit();
         int amount = random.nextInt();
-        int month = random.nextInt();
+        int month = random.nextInt(100000);
         double rate = random.nextDouble();
         double overPayment = calcCredit.overPayment(amount, month, rate);
         Assertions.assertTrue(amount * (rate / 100 / 12 * Math.pow((1 + rate / 100 / 12), month)) /
